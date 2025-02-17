@@ -17073,6 +17073,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2583477986794515184, guid: a61fb0e5bc8338d468acde41bebfaabb,
         type: 3}
+      propertyPath: m_Looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583477986794515184, guid: a61fb0e5bc8338d468acde41bebfaabb,
+        type: 3}
       propertyPath: m_VideoClip
       value: 
       objectReference: {fileID: 32900000, guid: ea4883e437ed5a645a17314fc57b5d0d,
@@ -68826,6 +68831,7 @@ Transform:
   - {fileID: 938097699}
   - {fileID: 1837494762}
   - {fileID: 417667009}
+  - {fileID: 1875357874}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1820910880
@@ -70315,7 +70321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875357873}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -70326,7 +70332,7 @@ Transform:
   - {fileID: 983645982}
   - {fileID: 634359655}
   - {fileID: 1149155648}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1812196634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1876895947
 GameObject:
@@ -81450,5 +81456,4 @@ SceneRoots:
   - {fileID: 1039797819}
   - {fileID: 2091334843}
   - {fileID: 36155543}
-  - {fileID: 1875357874}
   - {fileID: 1812196634}
