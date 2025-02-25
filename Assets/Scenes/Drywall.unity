@@ -79339,7 +79339,7 @@ PrefabInstance:
     - target: {fileID: 7572233694248021196, guid: d473d85b7f00d5344952d235058f95d1,
         type: 3}
       propertyPath: m_ClearFlags
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7572233694248021196, guid: d473d85b7f00d5344952d235058f95d1,
         type: 3}
@@ -81449,5 +81449,5 @@ SceneRoots:
   - {fileID: 1039797819}
   - {fileID: 2091334843}
   - {fileID: 36155543}
-  - {fileID: 1812196634}
   - {fileID: 417667008}
+  - {fileID: 1812196634}

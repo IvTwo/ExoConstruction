@@ -7908,6 +7908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR Setup
       objectReference: {fileID: 0}
+    - target: {fileID: 7572233694248021196, guid: d473d85b7f00d5344952d235058f95d1,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8320663218872903606, guid: d473d85b7f00d5344952d235058f95d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7970,5 +7975,5 @@ SceneRoots:
   - {fileID: 949220273}
   - {fileID: 5824375952889456315}
   - {fileID: 223852498}
-  - {fileID: 1797453584}
   - {fileID: 2211075120675126819}
+  - {fileID: 1797453584}
