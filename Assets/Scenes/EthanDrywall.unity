@@ -20141,7 +20141,7 @@ GameObject:
   - component: {fileID: 489555825}
   - component: {fileID: 489555824}
   m_Layer: 0
-  m_Name: WristR (1)
+  m_Name: WristL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74332,7 +74332,7 @@ Transform:
   m_GameObject: {fileID: 1938883544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.042, y: 0.6425, z: 0.959}
+  m_LocalPosition: {x: 1.036, y: 0.622, z: 0.9469}
   m_LocalScale: {x: 0.23727868, y: 0.23727868, z: 0.23727868}
   m_ConstrainProportionsScale: 0
   m_Children: []
