@@ -36,4 +36,18 @@ public class UI : MonoBehaviour
         isUIActive = !isUIActive;
         uiElement.SetActive(isUIActive);
     }
+
+    //CAL: Construction activity library
+    public void OnCALPressed()
+    {
+        Debug.Log("Construction Activity Library button pressed!");
+        return;
+    }
+
+    //WRL: Wearable robot library
+    public void OnWRLPressed() 
+    {
+        Debug.Log("Wearable Robot Library button pressed!");
+        return;
+    }
 }
