@@ -1,10 +1,11 @@
 using UnityEngine;
-using UnityEngine.XR;
 
 public class UI : MonoBehaviour
 {
     public Transform leftHandAnchor;
-    public GameObject uiElement;
+    public GameObject UIWrapper;
+    public GameObject ConstructionActivityLibrary;
+    public GameObject MainMenu;
     // determines offset from controller anchor
     [SerializeField] private float UIOffsetX = 0f;
     [SerializeField] private float UIOffsetY = 0.1f;
@@ -15,12 +16,15 @@ public class UI : MonoBehaviour
     private void Start()
     {
         isUIActive = false;
-        uiElement.SetActive(isUIActive);
+        ConstructionActivityLibrary.SetActive(false);
+        // Set to main menu screen
+        MainMenu.SetActive(true);
+        UIWrapper.SetActive(isUIActive);
         UIOffset = new Vector3(UIOffsetX, UIOffsetY, UIOffsetZ);
         // Make the UI element a child of the left hand anchor to follow its movement
-        uiElement.transform.SetParent(leftHandAnchor);
+        UIWrapper.transform.SetParent(leftHandAnchor);
         // Offset the UI elements position
-        uiElement.transform.localPosition += UIOffset;
+        UIWrapper.transform.localPosition += UIOffset;
     }
 
     void Update()
@@ -33,18 +37,22 @@ public class UI : MonoBehaviour
 
     private void ToggleUI()
     {
+        Debug.Log("Toggling UI");
         isUIActive = !isUIActive;
-        uiElement.SetActive(isUIActive);
+        UIWrapper.SetActive(isUIActive);
     }
 
-    //CAL: Construction activity library
+    // CAL: Construction activity library
     public void OnCALPressed()
     {
         Debug.Log("Construction Activity Library button pressed!");
+        // Swap to CAL screen and turn off main menu
+        ConstructionActivityLibrary.SetActive(true);
+        MainMenu.SetActive(false);
         return;
     }
 
-    //WRL: Wearable robot library
+    // WRL: Wearable robot library
     public void OnWRLPressed() 
     {
         Debug.Log("Wearable Robot Library button pressed!");
