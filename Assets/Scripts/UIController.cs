@@ -1,29 +1,40 @@
 using UnityEngine;
 
-public class UI : MonoBehaviour
+public class UIController : MonoBehaviour
 {
     public Transform leftHandAnchor;
     public GameObject UIWrapper;
     public GameObject ConstructionActivityLibrary;
+    public GameObject WearableRobotLibrary;
     public GameObject MainMenu;
-    // determines offset from controller anchor
+
+    [Header("Ray Interaction Objects")]
+    public GameObject MainMenuRayInteraction;
+    public GameObject CALRayInteraction;
+    public GameObject CALModalRayInteraction;
+    public GameObject WRLRayInteraction;
+    public GameObject WRLModalRayInteraction;
+
     [SerializeField] private float UIOffsetX = 0f;
     [SerializeField] private float UIOffsetY = 0.1f;
     [SerializeField] private float UIOffsetZ = 0.3f;
+
     private Vector3 UIOffset;
     private bool isUIActive;
 
     private void Start()
     {
         isUIActive = false;
-        ConstructionActivityLibrary.SetActive(false);
-        // Set to main menu screen
+        UIWrapper.SetActive(false);
+
+        // Ensure only Main Menu is active at start
         MainMenu.SetActive(true);
-        UIWrapper.SetActive(isUIActive);
+        ConstructionActivityLibrary.SetActive(false);
+        WearableRobotLibrary.SetActive(false);
+        SetRayInteraction(MainMenuRayInteraction);
+
         UIOffset = new Vector3(UIOffsetX, UIOffsetY, UIOffsetZ);
-        // Make the UI element a child of the left hand anchor to follow its movement
         UIWrapper.transform.SetParent(leftHandAnchor);
-        // Offset the UI elements position
         UIWrapper.transform.localPosition += UIOffset;
     }
 
@@ -37,25 +48,61 @@ public class UI : MonoBehaviour
 
     private void ToggleUI()
     {
-        Debug.Log("Toggling UI");
         isUIActive = !isUIActive;
         UIWrapper.SetActive(isUIActive);
     }
 
-    // CAL: Construction activity library
     public void OnCALPressed()
     {
-        Debug.Log("Construction Activity Library button pressed!");
-        // Swap to CAL screen and turn off main menu
-        ConstructionActivityLibrary.SetActive(true);
+        Debug.Log("Switching to CAL");
         MainMenu.SetActive(false);
-        return;
+        ConstructionActivityLibrary.SetActive(true);
+        SetRayInteraction(CALRayInteraction);
     }
 
-    // WRL: Wearable robot library
-    public void OnWRLPressed() 
+    public void OnWRLPressed()
     {
-        Debug.Log("Wearable Robot Library button pressed!");
-        return;
+        Debug.Log("Switching to WRL");
+        MainMenu.SetActive(false);
+        WearableRobotLibrary.SetActive(true);
+        SetRayInteraction(WRLRayInteraction);
+    }
+
+    public void OnReturnToMainMenuFromModal()
+    {
+        Debug.Log("Modal button pressed ? Returning to Main Menu");
+
+        ConstructionActivityLibrary.SetActive(false);
+        WearableRobotLibrary.SetActive(false);
+        MainMenu.SetActive(true);
+        SetRayInteraction(MainMenuRayInteraction);
+    }
+
+    public void OnModalOpened(string modal)
+    {
+        Debug.Log("Switching to Modal Ray Interaction");
+
+        if (modal.Equals("CAL"))
+        {
+            SetRayInteraction(CALModalRayInteraction);
+        } else
+        {
+            SetRayInteraction(WRLModalRayInteraction);
+        }
+        
+    }
+
+    private void SetRayInteraction(GameObject target)
+    {
+        MainMenuRayInteraction.SetActive(false);
+        CALRayInteraction.SetActive(false);
+        CALModalRayInteraction.SetActive(false);
+        WRLRayInteraction.SetActive(false);
+        WRLModalRayInteraction.SetActive(false);
+
+        if (target != null)
+        {
+            target.SetActive(true);
+        }
     }
 }
