@@ -19,13 +19,14 @@ public class UIController : MonoBehaviour
     [SerializeField] private float UIOffsetY = 0.1f;
     [SerializeField] private float UIOffsetZ = 0.3f;
 
+    [SerializeField] private bool isHandAnchored = false;
     private Vector3 UIOffset;
     private bool isUIActive;
 
     private void Start()
     {
-        isUIActive = false;
-        UIWrapper.SetActive(false);
+        isUIActive = true;
+        UIWrapper.SetActive(true);
 
         // Ensure only Main Menu is active at start
         MainMenu.SetActive(true);
@@ -33,14 +34,19 @@ public class UIController : MonoBehaviour
         WearableRobotLibrary.SetActive(false);
         SetRayInteraction(MainMenuRayInteraction);
 
-        UIOffset = new Vector3(UIOffsetX, UIOffsetY, UIOffsetZ);
-        UIWrapper.transform.SetParent(leftHandAnchor);
-        UIWrapper.transform.localPosition += UIOffset;
+        // If the UI type is hand anchored then use Y toggle logic
+        if (isHandAnchored)
+        {
+            UIOffset = new Vector3(UIOffsetX, UIOffsetY, UIOffsetZ);
+            UIWrapper.transform.SetParent(leftHandAnchor);
+            UIWrapper.transform.localPosition += UIOffset;
+        }
+
     }
 
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.Four))
+        if (OVRInput.GetDown(OVRInput.Button.Four) && isHandAnchored)
         {
             ToggleUI();
         }
