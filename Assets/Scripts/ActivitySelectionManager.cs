@@ -34,6 +34,7 @@ public class ActivitySelectionManager : MonoBehaviour
 
     public void StartWalkthrough()
     {
+        ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.ExteriorExploration);
         SceneManager.LoadScene("Exterior");
     }
 
@@ -49,6 +50,11 @@ public class ActivitySelectionManager : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(selectedSceneName))
         {
+            if (!ProgressManager.Instance.HasCompletedActivity(selectedSceneName))
+            {
+                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.Activity);
+            }
+
             SceneManager.LoadScene(selectedSceneName);
         }
         else
@@ -66,7 +72,7 @@ public class ActivitySelectionManager : MonoBehaviour
             activityCompletion[activityName] = true;
             Debug.Log(activityName + " marked as completed.");
 
-            // Go back to start scene once done
+            ProgressManager.Instance?.RegisterActivityCompleted(activityName);
             SceneManager.LoadScene("Start");
         }
         else
