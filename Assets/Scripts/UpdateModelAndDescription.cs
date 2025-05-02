@@ -5,6 +5,9 @@ public class UpdateModelAndDescription : MonoBehaviour
 {
     [SerializeField] private HorizontalSelector selector;
     [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float rotationX = 0f;
+    [SerializeField] private float rotationY = 180f;
+    [SerializeField] private float rotationZ = 0f;
     [SerializeField] private Transform descriptionParent;
 
     private Transform[] models;
@@ -51,7 +54,7 @@ public class UpdateModelAndDescription : MonoBehaviour
 
         if (index >= 0 && index < models.Length)
         {
-            models[index].rotation = Quaternion.Euler(0f, 180f, 0f);
+            models[index].rotation = Quaternion.Euler(rotationX, rotationY, rotationZ);
             currentIndex = index;
         }
         else currentIndex = -1;
