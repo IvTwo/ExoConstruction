@@ -37,16 +37,67 @@ public class RobotSelectionManager : MonoBehaviour
 
     public void ApplySuit()
     {
-        if (previewSet != null)
-        {
-            equippedSet = previewSet;
-            Debug.Log("Applied suit: " + equippedSet.suitType);
-            onSuitApplied.Invoke(equippedSet); // Notify all ApplyToAvatarButtons
-        }
-        else
+        if (previewSet == null)
         {
             Debug.LogWarning("No suit previewed to apply.");
+            return;
         }
+
+        var stage = ProgressManager.Instance?.CurrentStage ?? ProgressManager.Stage.StartWalkthrough;
+
+        // Restrict suit application by current stage
+        switch (stage)
+        {
+            case ProgressManager.Stage.RobotCarpentry:
+                if (previewSet.suitType != ExosuitType.Back)
+                {
+                    Debug.LogWarning("Only the Back (passive) suit can be applied for Carpentry.");
+                    return;
+                }
+                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotCarpentryActivitySelect);
+                break;
+
+            case ProgressManager.Stage.RobotConstructionLabor:
+                if (previewSet.suitType != ExosuitType.FullBody)
+                {
+                    Debug.LogWarning("Only the Full Body suit can be applied for Construction Labor.");
+                    return;
+                }
+                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotConstructionLaborActivitySelect);
+                break;
+
+            case ProgressManager.Stage.RobotDrywall:
+                if (previewSet.suitType != ExosuitType.Shoulder)
+                {
+                    Debug.LogWarning("Only the Shoulder suit can be applied for Drywall.");
+                    return;
+                }
+                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotDrywallActivitySelect);
+                break;
+
+            case ProgressManager.Stage.RobotElectrician:
+                if (previewSet.suitType != ExosuitType.Shoulder)
+                {
+                    Debug.LogWarning("Only the Shoulder suit can be applied for Electrician.");
+                    return;
+                }
+                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotElectricianActivitySelect);
+                break;
+
+            case ProgressManager.Stage.RobotMasonry:
+                if (previewSet.suitType != ExosuitType.Back)
+                {
+                    Debug.LogWarning("Only the Back (passive) suit can be applied for Masonry.");
+                    return;
+                }
+                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotMasonryActivitySelect);
+                break;
+        }
+
+        // Apply suit
+        equippedSet = previewSet;
+        Debug.Log("Applied suit: " + equippedSet.suitType);
+        onSuitApplied.Invoke(equippedSet);
     }
 
     public void UnequipSuit()

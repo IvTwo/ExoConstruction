@@ -78,6 +78,13 @@ public class ProgressManager : MonoBehaviour
             return;
         }
 
+        // Reset activity completions at the start of the WRL section
+        if (nextStage == Stage.RobotCarpentry && currentStage != Stage.RobotCarpentry)
+        {
+            ActivitySelectionManager.Instance?.ResetActivityCompletions();
+            Debug.Log("[ProgressManager] Activity completions reset for WRL phase.");
+        }
+
         currentStage = nextStage;
         Debug.Log($"[ProgressManager] Advanced to: {currentStage}");
         OnStageChanged?.Invoke(currentStage.ToString());
