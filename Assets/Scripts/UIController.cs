@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     public GameObject CALRayInteraction;
     public GameObject CALModalRayInteraction;
     public GameObject WRLRayInteraction;
+    public GameObject WRLModalRayInteraction;
 
     private void Start()
     {
@@ -58,7 +59,10 @@ public class UIController : MonoBehaviour
         {
             SetRayInteraction(CALModalRayInteraction);
         }
-        
+        else if (modal.Equals("WRL"))
+        {
+            SetRayInteraction(WRLModalRayInteraction);
+        }
     }
 
     private void SetRayInteraction(GameObject target)
@@ -67,6 +71,7 @@ public class UIController : MonoBehaviour
         CALRayInteraction.SetActive(false);
         CALModalRayInteraction.SetActive(false);
         WRLRayInteraction.SetActive(false);
+        WRLModalRayInteraction.SetActive(false);
 
         if (target != null)
         {

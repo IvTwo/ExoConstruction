@@ -6,6 +6,7 @@ public class HUDController : MonoBehaviour
     public Transform leftHandAnchor;
     public GameObject ActivityMenu;
     public GameObject ActivityHUDCanvas;
+    private Canvas progressCanvas;
     public GameObject MenuRayInteraction;
     public GameObject ModalRayInteraction;
 
@@ -34,6 +35,10 @@ public class HUDController : MonoBehaviour
                 ActivityMenu.transform.SetParent(leftHandAnchor);
                 ActivityMenu.transform.localPosition = offset;
             }
+
+            TryFindProgressHUDCanvas();
+            if (progressCanvas != null)
+                progressCanvas.enabled = true;
         }
     }
 
@@ -50,6 +55,15 @@ public class HUDController : MonoBehaviour
         isActivityMenuActive = !isActivityMenuActive;
         ActivityMenu.SetActive(isActivityMenuActive);
         ActivityHUDCanvas.SetActive(!isActivityMenuActive);
+        if (progressCanvas != null)
+            progressCanvas.enabled = !isActivityMenuActive;
+    }
+
+    private void TryFindProgressHUDCanvas()
+    {
+        ProgressHUDController hud = FindObjectOfType<ProgressHUDController>();
+        if (hud != null)
+            progressCanvas = hud.GetComponentInChildren<Canvas>();
     }
 
     public void OnReturnToMainMenuFromModal()

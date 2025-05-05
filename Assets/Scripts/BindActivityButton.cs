@@ -13,16 +13,24 @@ public class BindActivityButton : MonoBehaviour
     {
         if (activityButton != null)
         {
+            string localSceneName = activitySceneName; // capture per-instance value
+
             activityButton.onClick.RemoveAllListeners();
             activityButton.onClick.AddListener(() =>
             {
+                Debug.Log($"Clicked Button: {gameObject.name}, Scene: {localSceneName}");
+
                 if (isWalkthrough)
                 {
                     ActivitySelectionManager.Instance.StartWalkthrough();
                 }
                 else
                 {
-                    ActivitySelectionManager.Instance.SetSelectedActivity(activitySceneName);
+                    bool valid = ActivitySelectionManager.Instance.SetSelectedActivity(localSceneName);
+                    if (!valid)
+                    {
+                        Debug.LogWarning("Invalid activity selected for this stage: " + localSceneName);
+                    }
                 }
             });
         }
@@ -40,5 +48,7 @@ public class BindActivityButton : MonoBehaviour
             completeButton.onClick.AddListener(() =>
                 ActivitySelectionManager.Instance.CompleteActivity());
         }
+
+        Debug.Log($"{gameObject.name} initialized with scene: {activitySceneName}");
     }
 }
