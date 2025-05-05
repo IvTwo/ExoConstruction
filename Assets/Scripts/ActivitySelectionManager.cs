@@ -114,14 +114,16 @@ public class ActivitySelectionManager : MonoBehaviour
         // WRL stage handling
         if (stage == ProgressManager.Stage.RobotActivity)
         {
+            activityCompletion[activityName] = true;
+
             if (activityName == "Carpentry")
-                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotConstructionLabor);
+                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotConstructionLabor, force: true);
             else if (activityName == "Construction_Labor")
-                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotDrywall);
+                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotDrywall, force: true);
             else if (activityName == "Drywall")
-                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotElectrician);
+                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotElectrician, force: true);
             else if (activityName == "Electrician")
-                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotMasonry);
+                ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotMasonry, force: true);
             else if (activityName == "Masonry")
                 ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.Finish);
             else

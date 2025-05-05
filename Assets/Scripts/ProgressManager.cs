@@ -12,7 +12,7 @@ public class ProgressManager : MonoBehaviour
     {
         StartWalkthrough,
         ExteriorExploration,
-        ActivitySelection,
+        ActivitySelect,
         Activity,
         RobotCarpentry,
         RobotCarpentryActivitySelect,
@@ -32,7 +32,7 @@ public class ProgressManager : MonoBehaviour
     {
         { Stage.StartWalkthrough, 0 },
         { Stage.ExteriorExploration, 1 },
-        { Stage.ActivitySelection, 2 },
+        { Stage.ActivitySelect, 2 },
         { Stage.Activity, 3 },
         { Stage.RobotCarpentry, 4 },
         { Stage.RobotCarpentryActivitySelect, 5 },
@@ -97,7 +97,7 @@ public class ProgressManager : MonoBehaviour
             // Prevent regress if already past ActivitySelection
             if (currentStage == Stage.ExteriorExploration)
             {
-                AdvanceToStage(Stage.ActivitySelection, force: true);
+                AdvanceToStage(Stage.ActivitySelect, force: true);
             }
             else
             {
@@ -113,7 +113,7 @@ public class ProgressManager : MonoBehaviour
             // Only redirect back to ActivitySelection if we're still in pre-robot stages
             if (stageIndices[currentStage] < stageIndices[Stage.RobotCarpentry])
             {
-                AdvanceToStage(Stage.ActivitySelection, force: true);
+                AdvanceToStage(Stage.ActivitySelect, force: true);
             }
             else
             {
@@ -129,7 +129,7 @@ public class ProgressManager : MonoBehaviour
         if (completedActivitiesCount >= 5)
             AdvanceToStage(Stage.RobotCarpentry);
         else
-            AdvanceToStage(Stage.ActivitySelection, force: true);
+            AdvanceToStage(Stage.ActivitySelect, force: true);
     }
 
     public bool HasCompletedActivity(string sceneName)

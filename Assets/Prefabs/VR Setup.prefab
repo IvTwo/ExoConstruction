@@ -33748,6 +33748,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1039608247811189900, guid: 27293233194004a4d8d3cbd886fff031,
         type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039608247811189900, guid: 27293233194004a4d8d3cbd886fff031,
+        type: 3}
       propertyPath: m_PlaneDistance
       value: 1
       objectReference: {fileID: 0}

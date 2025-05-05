@@ -36,7 +36,7 @@ public class ProgressHUDController : MonoBehaviour
             case ProgressManager.Stage.ExteriorExploration:
                 uiText.text = "Explore the construction site. When ready, open the options menu by pressing 'Y' and click \"Complete Activity.\"";
                 break;
-            case ProgressManager.Stage.ActivitySelection:
+            case ProgressManager.Stage.ActivitySelect:
                 uiText.text = "Select an activity to observe in the Construction Activity Library. You must visit all 5 activites to advance.";
                 break;
             case ProgressManager.Stage.Activity:
