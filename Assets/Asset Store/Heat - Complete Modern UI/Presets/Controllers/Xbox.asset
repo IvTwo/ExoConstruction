@@ -28,7 +28,7 @@ MonoBehaviour:
     itemText: 
   - itemID: Select
     itemType: 0
-    itemIcon: {fileID: 21300000, guid: 43a34ba13f3e5954fb0425f3c8881d4f, type: 3}
+    itemIcon: {fileID: 21300000, guid: 56cfcee5ba155e8408cffc41d93b0b1a, type: 3}
     itemText: 
   - itemID: Next
     itemType: 0
@@ -68,9 +68,13 @@ MonoBehaviour:
     itemText: 
   - itemID: Menu
     itemType: 0
-    itemIcon: {fileID: 21300000, guid: c8ea5c5dc5fabe14fb96884ae7885daf, type: 3}
+    itemIcon: {fileID: 21300000, guid: af68decb788a9d74a8c90666fb787795, type: 3}
     itemText: 
   - itemID: Teleport
     itemType: 0
-    itemIcon: {fileID: 21300000, guid: e602b27893201fa45a4a672167c18af1, type: 3}
+    itemIcon: {fileID: 21300000, guid: 5f49f673d43c4c24786d79f6fc936661, type: 3}
+    itemText: 
+  - itemID: Hide
+    itemType: 0
+    itemIcon: {fileID: 21300000, guid: dd5fe99a8282f3a459a5b2d3ac70ca7c, type: 3}
     itemText: 
