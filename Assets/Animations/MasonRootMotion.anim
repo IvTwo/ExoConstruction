@@ -803,6 +803,27 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.13333334
+    functionName: ActivateHighlightByKey
+    data: LowerBack
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 5.9666667
+    functionName: ActivateHighlightByKey
+    data: RWrist
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 5.983333
+    functionName: ActivateHighlightByKey
+    data: LWrist
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 14.25
     functionName: toggleFollowing
     data: 
@@ -813,6 +834,55 @@ AnimationClip:
   - time: 18.983334
     functionName: attachObjectToTransform
     data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 19.966667
+    functionName: DeactivateHighlightByKey
+    data: LWrist
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 19.983334
+    functionName: DeactivateHighlightByKey
+    data: RWrist
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 22
+    functionName: ActivateHighlightByKey
+    data: RShoulder
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 22
+    functionName: ActivateHighlightByKey
+    data: LShoulder
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 24.516666
+    functionName: DeactivateHighlightByKey
+    data: LowerBack
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 40.066666
+    functionName: DeactivateHighlightByKey
+    data: LShoulder
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 40.066666
+    functionName: DeactivateHighlightByKey
+    data: RShoulder
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
