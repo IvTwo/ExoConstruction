@@ -866,13 +866,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 24.516666
-    functionName: DeactivateHighlightByKey
-    data: LowerBack
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 40.066666
     functionName: DeactivateHighlightByKey
     data: LShoulder
