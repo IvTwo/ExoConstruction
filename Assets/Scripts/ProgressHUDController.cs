@@ -28,6 +28,9 @@ public class ProgressHUDController : MonoBehaviour
             return;
         }
 
+        // Play Quest Item animation if found
+        ReplayQuestItemAnimation();
+
         switch (stage)
         {
             case ProgressManager.Stage.StartWalkthrough:
@@ -81,6 +84,24 @@ public class ProgressHUDController : MonoBehaviour
             default:
                 uiText.text = "";
                 break;
+        }
+    }
+
+    private void ReplayQuestItemAnimation()
+    {
+        GameObject questItem = GameObject.FindWithTag("Instruction");
+        if (questItem != null)
+        {
+            Animator animator = questItem.GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.Play("In", 0, 0f);
+                Debug.Log("[ProgressHUDController] QuestItem animation replayed.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[ProgressHUDController] No GameObject tagged 'Instruction' found.");
         }
     }
 
