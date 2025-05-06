@@ -76,7 +76,7 @@ public class ProgressHUDController : MonoBehaviour
                 uiText.text = "Observe the avatar performing the same task again. Notice how the green indicators highlight improved posture and reduced strain. When ready, open the options menu by pressing 'Y' and click \"Complete Activity.\"";
                 break;
             case ProgressManager.Stage.Finish:
-                uiText.text = "You have completed this module.";
+                uiText.text = "You have completed this module. Please return the headset to your instructor.";
                 break;
             default:
                 uiText.text = "";
