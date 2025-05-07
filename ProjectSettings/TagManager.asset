@@ -8,6 +8,7 @@ TagManager:
   - WrongRobotModal
   - Exoskeleton
   - Instruction
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - WRL_UI
   - RobotModel
   - ModalUI
-  - 
+  - Wall
   - 
   - 
   - 
