@@ -478,4 +478,74 @@ AnimationClip:
     flags: 0
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 8.533334
+    functionName: ActivateHighlightByKey
+    data: LShoulder
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 8.533334
+    functionName: ActivateHighlightByKey
+    data: RShoulder
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 11.016666
+    functionName: ActivateHighlightByKey
+    data: RWrist
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 11.016666
+    functionName: ActivateHighlightByKey
+    data: LWrist
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 11.083333
+    functionName: ActivateHighlightByKey
+    data: Neck
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 129.91667
+    functionName: DeactivateHighlightByKey
+    data: RWrist
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 129.91667
+    functionName: DeactivateHighlightByKey
+    data: LWrist
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 130
+    functionName: DeactivateHighlightByKey
+    data: Neck
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 130.25
+    functionName: DeactivateHighlightByKey
+    data: LShoulder
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 130.25
+    functionName: DeactivateHighlightByKey
+    data: RShoulder
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
