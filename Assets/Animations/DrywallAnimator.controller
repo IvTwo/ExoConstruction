@@ -10,8 +10,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 280630475971994242}
-    m_Position: {x: 289.12448, y: 91.59712, z: 0}
+    m_State: {fileID: 6729656608791515615}
+    m_Position: {x: 376, y: 146, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -21,7 +21,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 280630475971994242}
+  m_DefaultState: {fileID: 6729656608791515615}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -44,14 +44,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &280630475971994242
+--- !u!1102 &6729656608791515615
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Drywaller_Exo|Drywaller_Exo
+  m_Name: Drywaller_Exo
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -64,8 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -2858224947216944802, guid: fd835a5b594815c44a52ec47ec46d530,
-    type: 3}
+  m_Motion: {fileID: 7400000, guid: 9f6712ee7a169d54ebb9a3c5cbfe5b63, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
