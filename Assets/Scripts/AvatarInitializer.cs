@@ -11,6 +11,10 @@ public class AvatarInitializer : MonoBehaviour
             var copiedSet = ScriptableObject.Instantiate(equipped);
             spawner.materialSet = copiedSet;
             spawner.ApplyMaterials();
+            Debug.Log("Equipped Exosuit");
+        } else
+        {
+            Debug.Log("Exosuit not equipped");
         }
     }
 }
