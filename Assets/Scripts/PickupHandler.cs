@@ -10,7 +10,12 @@ public class PickupHandler : MonoBehaviour
     [SerializeField] private float lerpSpeed = 5f;
     private bool isFollowing = false;
     private bool isMovingToTransform = false;
+    private AudioSource audioSource;
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -50,5 +55,10 @@ public class PickupHandler : MonoBehaviour
     {
         isMovingToTransform = true;
         isFollowing = false;
+    }
+
+    public void PlayWoodPlacingSound()
+    {
+        audioSource.Play();
     }
 }

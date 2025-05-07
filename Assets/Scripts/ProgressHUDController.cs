@@ -28,6 +28,9 @@ public class ProgressHUDController : MonoBehaviour
             return;
         }
 
+        // Play Quest Item animation if found
+        ReplayQuestItemAnimation();
+
         switch (stage)
         {
             case ProgressManager.Stage.StartWalkthrough:
@@ -76,11 +79,29 @@ public class ProgressHUDController : MonoBehaviour
                 uiText.text = "Observe the avatar performing the same task again. Notice how the green indicators highlight improved posture and reduced strain. When ready, open the options menu by pressing 'Y' and click \"Complete Activity.\"";
                 break;
             case ProgressManager.Stage.Finish:
-                uiText.text = "Finished Module 1!";
+                uiText.text = "You have completed this module. Please return the headset to your instructor.";
                 break;
             default:
                 uiText.text = "";
                 break;
+        }
+    }
+
+    private void ReplayQuestItemAnimation()
+    {
+        GameObject questItem = GameObject.FindWithTag("Instruction");
+        if (questItem != null)
+        {
+            Animator animator = questItem.GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.Play("In", 0, 0f);
+                Debug.Log("[ProgressHUDController] QuestItem animation replayed.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[ProgressHUDController] No GameObject tagged 'Instruction' found.");
         }
     }
 

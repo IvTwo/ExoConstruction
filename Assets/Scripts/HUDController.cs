@@ -16,6 +16,8 @@ public class HUDController : MonoBehaviour
 
     private bool isActivityMenuActive = false;
 
+    private bool hudHidden = false;
+
     void Start()
     {
         if (SceneManager.GetActiveScene().name == "Start")
@@ -44,19 +46,52 @@ public class HUDController : MonoBehaviour
 
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.Four))
+        // Y button toggles between Activity Menu and HUD (only if HUD is visible)
+        if (OVRInput.GetDown(OVRInput.Button.Four) && !hudHidden)
         {
             ToggleActivityMenuAndHUD();
+        }
+
+        // X button toggles entire HUD (only if Activity Menu is not currently active)
+        if (OVRInput.GetDown(OVRInput.Button.Three) && !isActivityMenuActive)
+        {
+            ToggleEntireHUD();
         }
     }
 
     private void ToggleActivityMenuAndHUD()
     {
         isActivityMenuActive = !isActivityMenuActive;
+
+        // Reset ray interaction first
+        SetRayInteraction(null);
+
         ActivityMenu.SetActive(isActivityMenuActive);
         ActivityHUDCanvas.SetActive(!isActivityMenuActive);
+
         if (progressCanvas != null)
             progressCanvas.enabled = !isActivityMenuActive;
+
+        SetRayInteraction(isActivityMenuActive ? MenuRayInteraction : MenuRayInteraction);
+    }
+
+    private void ToggleEntireHUD()
+    {
+        hudHidden = !hudHidden;
+
+        SetRayInteraction(null); // Clear all interaction
+
+        ActivityHUDCanvas.SetActive(!hudHidden);
+        ActivityMenu.SetActive(false);
+        if (progressCanvas != null)
+            progressCanvas.enabled = !hudHidden;
+
+        if (!hudHidden)
+        {
+            SetRayInteraction(MenuRayInteraction);
+        }
+
+        isActivityMenuActive = false; // Force reset menu state
     }
 
     private void TryFindProgressHUDCanvas()
