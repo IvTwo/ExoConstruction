@@ -11,6 +11,8 @@ public class HighlightUpdater : MonoBehaviour
 
     [SerializeField] private bool debugOverride = false;
     private Renderer rend;
+    private Material runtimeMat;
+    private bool hasSuit;
     private void Start()
     {
        if (supportedColor == null)
@@ -24,21 +26,32 @@ public class HighlightUpdater : MonoBehaviour
         }
 
         rend = ergoHighlight.GetComponent<Renderer>();
-        rend.material = new Material(rend.material);
+        runtimeMat = new Material(rend.material);
+        rend.material = runtimeMat;
+        hasSuit = false;
     }
     void Update()
     {
-        if (debugOverride || RobotSelectionManager.Instance.HasEquippedSuit())
+        if (RobotSelectionManager.Instance != null)
         {
-            rend.material.color = supportedColor;
-            rend.material.SetColor("_EmissionColor", supportedColor);
+            hasSuit = RobotSelectionManager.Instance.HasEquippedSuit();
+        }
+        else
+        {
+            Debug.LogWarning("RobotSelectionManager not initialized");
+        }
+
+        if (debugOverride || hasSuit)
+        {
+            ergoHighlight.GetComponent<Renderer>().material.SetColor("_Color", supportedColor);
+            ergoHighlight.GetComponent<Renderer>().material.SetColor("_EmissionColor", supportedColor);
             labelText.color = supportedColor;
             labelText.text = "Low Risk";
         }
         else
         {
-            rend.material.color = unSupportedColor;
-            rend.material.SetColor("_EmissionColor", unSupportedColor);
+            ergoHighlight.GetComponent<Renderer>().material.SetColor("_Color", unSupportedColor);
+            ergoHighlight.GetComponent<Renderer>().material.SetColor("_EmissionColor", unSupportedColor);
             labelText.color = unSupportedColor;
             labelText.text = "High Risk";
         }
