@@ -7657,7 +7657,7 @@ MonoBehaviour:
   openCircleSprite: {fileID: 21300000, guid: 81aa04a4cc0aa1b44ab2d522d71439de, type: 3}
   closedCircleSprite: {fileID: 21300000, guid: 54c701a66b728fe40b8777d0fa6105af, type: 3}
   iconImage: {fileID: 0}
-  checkAllActivities: 0
+  checkAllActivities: 1
 --- !u!114 &404434028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7667,11 +7667,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 404434021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c7efdef5f49194e8ee28df64f617fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f06373e2786be649b4b15cd2cd378f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lslOutlet: {fileID: 792265639}
-  actionText: CarpentryBoxButton
+  streamOutputText: Carpentry
 --- !u!4 &406565315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2531141197009590418, guid: b8e77d777adee7c4f8e01817efcce87b,
@@ -13799,7 +13799,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 792265638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00346991f7ea26e43bdbbaf98e45c47f, type: 3}
+  m_Script: {fileID: 11500000, guid: f977aebdfdb7e314c81f5a734b0ed161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &792265640
@@ -15721,11 +15721,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 911365203}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c7efdef5f49194e8ee28df64f617fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f06373e2786be649b4b15cd2cd378f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lslOutlet: {fileID: 792265639}
-  actionText: ConstructionLaborBoxButton
+  streamOutputText: Construction
 --- !u!1 &912125952
 GameObject:
   m_ObjectHideFlags: 0
@@ -16066,11 +16066,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 915434591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c7efdef5f49194e8ee28df64f617fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f06373e2786be649b4b15cd2cd378f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lslOutlet: {fileID: 792265639}
-  actionText: MasonryBoxButton
+  streamOutputText: Masonry
 --- !u!1 &919331808
 GameObject:
   m_ObjectHideFlags: 0
@@ -22336,11 +22336,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1203350728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c7efdef5f49194e8ee28df64f617fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f06373e2786be649b4b15cd2cd378f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lslOutlet: {fileID: 792265639}
-  actionText: DrywallBoxButton
+  streamOutputText: Drywall
 --- !u!4 &1206009272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1235742121692755797, guid: b8e77d777adee7c4f8e01817efcce87b,
@@ -34864,11 +34864,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1827342449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c7efdef5f49194e8ee28df64f617fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f06373e2786be649b4b15cd2cd378f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lslOutlet: {fileID: 792265639}
-  actionText: ElectricianBoxButton
+  streamOutputText: Electrician
 --- !u!1 &1857697975
 GameObject:
   m_ObjectHideFlags: 0
@@ -47144,7 +47144,7 @@ PrefabInstance:
     - target: {fileID: 618128304315565764, guid: ca372a373bd9fe64294acbf225f372d4,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 618128304315565764, guid: ca372a373bd9fe64294acbf225f372d4,
         type: 3}
