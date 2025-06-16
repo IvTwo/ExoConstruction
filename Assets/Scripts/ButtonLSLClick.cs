@@ -9,9 +9,10 @@ public class ButtonLSLClick : MonoBehaviour
 
     public void OnButtonClick()
     {
+        // VRButtonLSLOutlet.Instance.SendMarker("UIButtonClicked: " + streamOutputText);
         if (lslOutlet != null)
         {
-            lslOutlet.SendMarker("UIButtonClicked: " + streamOutputText);
+            // lslOutlet.SendMarker("UIButtonClicked: " + streamOutputText);
         }
     }
 }

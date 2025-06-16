@@ -30,6 +30,14 @@ public class ActivitySelectionManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        if (VRButtonLSLOutlet.Instance == null)
+        {
+            GameObject lslGO = new GameObject("LSLManager");
+            lslGO.AddComponent<VRButtonLSLOutlet>();
+            DontDestroyOnLoad(lslGO);
+            Debug.Log("LSLManager created from ActivitySelectionManager");
+        }
     }
 
     public void StartWalkthrough()
