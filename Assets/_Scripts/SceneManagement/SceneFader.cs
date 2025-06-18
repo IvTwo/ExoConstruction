@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneFader : MonoBehaviour
 {
-    public Image img;
-    public AnimationCurve curve;
+    [SerializeField] private Image img;
+    [SerializeField] private AnimationCurve curve;
+    [SerializeField] private float fadeTime = 1f;
 
     private void Start() {
         StartCoroutine(FadeIn());
@@ -18,12 +19,12 @@ public class SceneFader : MonoBehaviour
     }
 
     IEnumerator FadeIn() {
-        float t = 1f;    // time
+        float t = fadeTime;
 
-        while (t>0) {
-            t -= Time.deltaTime;
-            float a = curve.Evaluate(t);
-            img.color = new Color(0f, 0f, 0f, t);
+        while (t > 0) {
+            float a = curve.Evaluate(t / fadeTime);
+            img.color = new Color(0f, 0f, 0f, a);
+             t -= Time.deltaTime;
             yield return 0;         // wait a frame and then continue
         }
     }
@@ -31,10 +32,10 @@ public class SceneFader : MonoBehaviour
     IEnumerator FadeOut(int index) {
         float t = 0f;    // time
 
-        while (t < 1f) {
-            t += Time.deltaTime;
+        while (t < fadeTime) {
             float a = curve.Evaluate(t);
-            img.color = new Color(0f, 0f, 0f, t);
+            img.color = new Color(0f, 0f, 0f, a);
+            t += Time.deltaTime;
             yield return 0;         // wait a frame and then continue
         }
         SceneManager.LoadScene(index);
