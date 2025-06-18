@@ -57,17 +57,20 @@ public class RobotSelectionManager : MonoBehaviour
         {
             case ProgressManager.Stage.RobotCarpentry:
                 valid = previewSet.suitType == ExosuitType.Back;
+                VRButtonLSLOutlet.Instance.SendMarker((valid ? "Correct" : "Wrong") + " exosuit selected: " + previewSet.suitType.ToString() + "; expected: Back for " + stage.ToString());
                 if (valid) ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotCarpentryActivitySelect);
                 break;
 
             case ProgressManager.Stage.RobotConstructionLabor:
                 valid = previewSet.suitType == ExosuitType.FullBody;
+                VRButtonLSLOutlet.Instance.SendMarker((valid ? "Correct" : "Wrong") + " exosuit selected: " + previewSet.suitType.ToString() + "; expected: Full Body for " + stage.ToString());
                 if (valid) ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotConstructionLaborActivitySelect);
                 break;
 
             case ProgressManager.Stage.RobotDrywall:
             case ProgressManager.Stage.RobotElectrician:
                 valid = previewSet.suitType == ExosuitType.Shoulder;
+                VRButtonLSLOutlet.Instance.SendMarker((valid ? "Correct" : "Wrong") + " exosuit selected: " + previewSet.suitType.ToString() + "; expected: Shoulder for " + stage.ToString());
                 if (valid)
                 {
                     var nextStage = (stage == ProgressManager.Stage.RobotDrywall)
@@ -79,6 +82,7 @@ public class RobotSelectionManager : MonoBehaviour
 
             case ProgressManager.Stage.RobotMasonry:
                 valid = previewSet.suitType == ExosuitType.Back;
+                VRButtonLSLOutlet.Instance.SendMarker((valid ? "Correct" : "Wrong") + " exosuit selected: " + previewSet.suitType.ToString() + "; expected: Back for " + stage.ToString());
                 if (valid) ProgressManager.Instance.AdvanceToStage(ProgressManager.Stage.RobotMasonryActivitySelect);
                 break;
         }

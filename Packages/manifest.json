@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.labstreaminglayer.lsl4unity": "https://github.com/labstreaminglayer/LSL4Unity.git",
     "com.meta.xr.sdk.all": "71.0.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.animation.rigging": "1.2.1",
