@@ -4,12 +4,14 @@ using UnityEngine;
 using Yarn.Unity;
 
 /// <summary>
-///  will be scrapped for a better system later. This is just to show what works
+///  Temporary Animation Manager
+/// will be scrapped for a better system later. This is just to show what works
 /// </summary>
 public class AnimTEST : MonoBehaviour
 {
     [SerializeField] private DialogueRunner dialogueRunner;
     [SerializeField] private DoorAnim doorAnim;
+    [SerializeField] private InstructorAnim instructorAnim;
 
     void Start() {
         StartCoroutine(TestRun());
@@ -18,7 +20,9 @@ public class AnimTEST : MonoBehaviour
     IEnumerator TestRun() {
         yield return new WaitForSeconds(5);
         doorAnim.Play();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
+        instructorAnim.Play();
+        yield return new WaitForSeconds(1.5f);
         dialogueRunner.StartDialogue("Start");
     }
 }
