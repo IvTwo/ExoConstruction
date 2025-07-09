@@ -1,28 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Splines;
 
+/// <summary>
+/// Takes a transform, and moves it along a path made of bezier knots
+/// </summary>
 public class PathMover : MonoBehaviour
 {
-    public void MoveAlongPath(Transform mover, List<Transform> pathPoints, float moveSpeed, float pauseDuration) {
-        StartCoroutine(MovePathCoroutine(mover, pathPoints, moveSpeed, pauseDuration));
+    [SerializeField] private Animator animator; // TODO: temp test, will refactor if we need to use this
+                                                // for more than the virtual instructor
+    [SerializeField] private InstructorAnim animatorInstructor;
+
+    public void MoveAlongPath(Transform mover, List<BezierKnot> path, float moveSpeed) {
+        StartCoroutine(MovePathCoroutine(mover, path, moveSpeed));
     }
 
-    private IEnumerator MovePathCoroutine(Transform mover, List<Transform> pathPoints, float moveSpeed, float pauseDuration) {
-        if (pathPoints == null || pathPoints.Count == 0)
-            yield break;
+    private IEnumerator MovePathCoroutine(Transform mover, List<BezierKnot> path, float moveSpeed) {
+        animator.SetBool("isWalking", true);
+        animatorInstructor.StopRotate();
 
-        foreach (Transform targetPoint in pathPoints) {
-            // Move toward the current point
-            while (Vector3.Distance(mover.position, targetPoint.position) > 0.01f) {
-                mover.position = Vector3.MoveTowards(mover.position, targetPoint.position, moveSpeed * Time.deltaTime);
+        foreach (BezierKnot b in path) {
+            // look towards next point in path
+            Vector3 lookPosition = b.Position;
+            lookPosition.y = mover.position.y;
+            mover.LookAt(lookPosition);
+
+            // move towards current point
+            while (Vector3.Distance(mover.position, b.Position) > 0.05f) {
+                mover.position = Vector3.MoveTowards(mover.position, b.Position, moveSpeed * Time.deltaTime);
                 yield return null;
             }
-
-            mover.position = targetPoint.position; // Snap to exact position
-
-            // Pause at the point
-            yield return new WaitForSeconds(pauseDuration);
+            mover.position = b.Position;    // ensure snap at position
+            yield return null;
         }
+
+        animatorInstructor.StartRotate();
+        animator.SetBool("isWalking", false);
     }
 }

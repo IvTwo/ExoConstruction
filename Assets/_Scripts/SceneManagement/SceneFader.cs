@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class SceneFader : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class SceneFader : MonoBehaviour
     [SerializeField] private AnimationCurve curve;
     [SerializeField] private float fadeTime = 1f;
 
-    private void Start() {
+    //public void EnterScene() {
+    //    StartCoroutine(FadeIn());
+    //}
+    void Start() {
         StartCoroutine(FadeIn());
     }
 
