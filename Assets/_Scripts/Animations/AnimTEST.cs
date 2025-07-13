@@ -19,8 +19,8 @@ public class AnimTEST : MonoBehaviour
     }
 
     IEnumerator TestRun() {
-        //yield return new WaitForSeconds(5);
-        //doorAnim.Play();
+        yield return new WaitForSeconds(5);
+        doorAnim.Play();
         yield return new WaitForSeconds(2);
         instructorAnim.MoveVirtualInstructor(3);
         yield return new WaitForSeconds(1.5f);

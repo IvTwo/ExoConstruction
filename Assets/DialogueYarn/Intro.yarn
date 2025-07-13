@@ -1,5 +1,12 @@
 ﻿title: Start
 ---
 Virtual Instructor: Welcome to your first day on site! I’m your guide. You’ll learn how construction workers face ergonomic challenges—and how wearable robots can help solve them.
-Virtual Instructor: This line is a test.
+
+<<activate_checklist Checklist>>
+
+Virtual Instructor: You've already completed Item 1 of the Orientation Checklist just by showing up!
+
+Virutal Instructor: The next item on the checklist is to examine the site office behind me.
+
+Virtual Instructor: This is where supervisors plan, monitor progress, and assign tasks. It’s the brain of the construction operation
 ===

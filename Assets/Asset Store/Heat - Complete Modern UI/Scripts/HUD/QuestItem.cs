@@ -78,8 +78,7 @@ namespace Michsky.UI.Heat
                 StopCoroutine("DisableAnimator");
                 StartCoroutine("DisableAnimator");
 
-                if (minimizeAfter != 0)
-                {
+                if (minimizeAfter != 0) {
                     StopCoroutine("MinimizeItem");
                     StartCoroutine("MinimizeItem");
                 }
@@ -93,10 +92,10 @@ namespace Michsky.UI.Heat
             questAnimator.Play("In");
 
             if (updateOnAnimate == true) { UpdateUI(); }
-            if (minimizeAfter != 0) { StopCoroutine("MinimizeItem"); StartCoroutine("MinimizeItem"); }
+            //if (minimizeAfter != 0) { StopCoroutine("MinimizeItem"); StartCoroutine("MinimizeItem"); }    // COMMENTED OUT BY PROGRAMER
 
-            StopCoroutine("DisableAnimator");
-            StartCoroutine("DisableAnimator");
+            //StopCoroutine("DisableAnimator");
+            //StartCoroutine("DisableAnimator");
         }
 
         public void MinimizeQuest()
