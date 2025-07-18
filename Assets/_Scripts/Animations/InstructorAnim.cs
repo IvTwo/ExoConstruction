@@ -18,21 +18,24 @@ public class InstructorAnim : MonoBehaviour
 
     [SerializeField] private PathMover pathMover;
     [SerializeField] private SplineContainer walkPath;
+    [SerializeField] private Transform player;
+    [SerializeField] private Animator animator;
     private List<BezierKnot> knotList; // TODO: def a way to use arrays here but ._ .
     private int knotIndex = 0;
 
     private Transform t;
     private Transform lookTarget;
-    private bool canRotate = false;
+    private bool isWalking = false;
 
     void Start() {
         t = transform;
         pathMover = GetComponent<PathMover>();
         knotList = walkPath.Spline.Knots.ToList();
+        SetLookTarget(player);
     }
 
     void Update() {
-        if (canRotate) {
+        if (!isWalking) {
             RotateInstructor();
         }
     }
@@ -42,16 +45,26 @@ public class InstructorAnim : MonoBehaviour
     /// </summary>
     [YarnCommand("move_instructor")]
     public void MoveVirtualInstructor(int knotIndexToMoveTo) {
-        List<BezierKnot> path = knotList.GetRange(knotIndex, knotIndexToMoveTo + 1);
+        //Debug.Log("knotListLength: " + knotList.Count);
+        //Debug.Log("Before Move Knot Index: " + knotIndex + "| Moving too: " + knotIndexToMoveTo);
+        List<BezierKnot> path = knotList.GetRange(knotIndex, (knotIndexToMoveTo - knotIndex) + 1);
         pathMover.MoveAlongPath(t, path, moveSpeed);
+        knotIndex = knotIndexToMoveTo;  // TODO: theoretically i should probably increment this in the move method in case any weird errors occur but (._ .)
+        //Debug.Log("Curr Knot Index: " + knotIndex);
     }
 
     public void SetLookTarget(Transform target) {
        lookTarget = target;
     }
 
-    public void StartRotate() { canRotate = true; }
-    public void StopRotate() { canRotate = false; }
+    public void StartWalking() {
+        animator.SetBool("isWalking", true);
+        isWalking = true; 
+    }
+    public void StopWalking() {
+        animator.SetBool("isWalking", false);
+        isWalking = false; 
+    }
 
     private void RotateInstructor() {
         Vector3 direction = (lookTarget.position - t.position).normalized;  // calculate direction to target
@@ -59,5 +72,14 @@ public class InstructorAnim : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(direction);   // calc target rotation
 
         t.rotation = Quaternion.Slerp(t.rotation, lookRotation, rotateSpeed * Time.deltaTime);
+    }
+
+    /// <summary>
+    /// In Yarn Scripts theres certain moments I don't want the player to be able to progress dialogue until
+    /// the instructor has reached a certain point
+    /// </summary>
+    [YarnCommand("wait_until_done")]
+    public IEnumerator WaitUntilDone() {
+        yield return new WaitUntil(() => isWalking == false);
     }
 }

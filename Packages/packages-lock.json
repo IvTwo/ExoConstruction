@@ -376,11 +376,20 @@
       "url": "https://packages.unity.com"
     },
     "dev.yarnspinner.unity": {
-      "version": "3.0.2",
-      "depth": 0,
+      "version": "3.0.3",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
+    },
+    "dev.yarnspinner.unity.samples": {
+      "version": "file:dev.yarnspinner.unity.samples",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "dev.yarnspinner.unity": "3.0.3",
+        "com.unity.shadergraph": "14.0.0"
+      }
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

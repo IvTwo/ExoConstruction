@@ -8,17 +8,14 @@ using UnityEngine.Splines;
 /// </summary>
 public class PathMover : MonoBehaviour
 {
-    [SerializeField] private Animator animator; // TODO: temp test, will refactor if we need to use this
-                                                // for more than the virtual instructor
-    [SerializeField] private InstructorAnim animatorInstructor;
+    [SerializeField] private InstructorAnim animatorInstructor; // TODO: refactor if necessary
 
     public void MoveAlongPath(Transform mover, List<BezierKnot> path, float moveSpeed) {
         StartCoroutine(MovePathCoroutine(mover, path, moveSpeed));
     }
 
     private IEnumerator MovePathCoroutine(Transform mover, List<BezierKnot> path, float moveSpeed) {
-        animator.SetBool("isWalking", true);
-        animatorInstructor.StopRotate();
+        animatorInstructor.StartWalking();
 
         foreach (BezierKnot b in path) {
             // look towards next point in path
@@ -35,7 +32,6 @@ public class PathMover : MonoBehaviour
             yield return null;
         }
 
-        animatorInstructor.StartRotate();
-        animator.SetBool("isWalking", false);
+        animatorInstructor.StopWalking();
     }
 }

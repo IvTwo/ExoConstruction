@@ -1,5 +1,11 @@
 ﻿title: Start
 ---
+<<wait 5>>
+<<door_anim AnimTESTManager>>
+<<wait 2>>
+<<move_instructor VirtualInstructor 3>>
+<<wait 1.5>>
+
 Virtual Instructor: Welcome to your first day on site! I’m your guide. You’ll learn how construction workers face ergonomic challenges—and how wearable robots can help solve them.
 
 <<activate_checklist Checklist>>
@@ -8,5 +14,11 @@ Virtual Instructor: You've already completed Item 1 of the Orientation Checklist
 
 Virutal Instructor: The next item on the checklist is to examine the site office behind me.
 
-Virtual Instructor: This is where supervisors plan, monitor progress, and assign tasks. It’s the brain of the construction operation
+Virutal Instructor: Let's go take a look inside. Follow me using the teleport points on the ground.
+
+<<move_instructor VirtualInstructor 8>>
+
+<<wait_until_done VirtualInstructor>>
+
+Virtual Instructor: This is where supervisors plan, monitor progress, and assign tasks. It’s the brain of the construction operation.
 ===

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 /// <summary>
 /// Opens the Quarters door
@@ -9,6 +10,7 @@ public class DoorAnim : MonoBehaviour
 {
     [SerializeField] private Transform pivot;
 
+    [YarnCommand("door_anim")]
     public void Play() {
         RotateOverTime(pivot, Vector3.up, -159f, 2f);
     }
