@@ -11,6 +11,7 @@ public class ChecklistManager : MonoBehaviour
 {
     [SerializeField] private GameObject questHeader;
     [SerializeField] private GameObject checklistItem1;
+    [SerializeField] private GameObject checklistItem2;
 
     [YarnCommand("activate_checklist")]
     public void ActivateChecklist() {
@@ -20,5 +21,10 @@ public class ChecklistManager : MonoBehaviour
 
     public void ActivateCheckListItem1() {
         checklistItem1.SetActive(true);
+    }
+
+    [YarnCommand("activate_item2")]
+    public void ActivateCheckListItem2() {
+        checklistItem2.SetActive(true);
     }
 }

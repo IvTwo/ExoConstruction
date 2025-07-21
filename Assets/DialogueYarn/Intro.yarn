@@ -21,4 +21,10 @@ Virutal Instructor: Let's go take a look inside. Follow me using the teleport po
 <<wait_until_done VirtualInstructor>>
 
 Virtual Instructor: This is where supervisors plan, monitor progress, and assign tasks. It’s the brain of the construction operation.
+
+Virtual Instructor: Please look at the Observation Box in front of you.
+
+<<activate_item2 Checklist>>
+
+Virtual Instructor: Construction isn’t just physical labor—it also involves coordination and planning. Now, let’s go meet the workers and observe their tasks in action.
 ===
