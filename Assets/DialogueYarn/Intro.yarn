@@ -1,7 +1,7 @@
 ﻿title: Start
 ---
 <<wait 5>>
-<<door_anim AnimTESTManager>>
+<<door_anim AnimationScripts>>
 <<wait 2>>
 <<move_instructor VirtualInstructor 3>>
 <<wait 1.5>>

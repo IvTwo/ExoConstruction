@@ -28,7 +28,7 @@
                 {
                     "name": "",
                     "id": "0080b471-6752-44da-8f26-29a193ad7e2e",
-                    "path": "<XRController>/{PrimaryButton}",
+                    "path": "<OculusTouchController>/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -44,17 +44,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "AdvanceDialogue",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e1d8c50a-aa45-4d88-9c57-59d79538bc3c",
-                    "path": "<XRController>/{SecondaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HurryDialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
