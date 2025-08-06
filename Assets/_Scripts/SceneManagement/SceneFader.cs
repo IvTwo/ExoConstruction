@@ -9,20 +9,21 @@ public class SceneFader : MonoBehaviour
 {
     [SerializeField] private Image img;
     [SerializeField] private AnimationCurve curve;
-    [SerializeField] private float fadeTime = 1f;
+    //[SerializeField] private float fadeTime = 1f;
 
     //public void EnterScene() {
     //    StartCoroutine(FadeIn());
     //}
-    void Start() {
-        StartCoroutine(FadeIn());
-    }
+    //void Start() {
+    //    StartCoroutine(FadeIn());
+    //}
 
-    public void FadeTo(int index) {
-        StartCoroutine(FadeOut(index));
-    }
+    //public void FadeTo(int index) {
+    //    StartCoroutine(FadeOut(index));
+    //}
 
-    IEnumerator FadeIn() {
+    [YarnCommand("fade_in")]
+    public IEnumerator FadeIn(int fadeTime) {
         float t = fadeTime;
 
         while (t > 0) {
@@ -33,7 +34,7 @@ public class SceneFader : MonoBehaviour
         }
     }
 
-    IEnumerator FadeOut(int index) {
+    IEnumerator FadeOut(int index, int fadeTime) {
         float t = 0f;    // time
 
         while (t < fadeTime) {

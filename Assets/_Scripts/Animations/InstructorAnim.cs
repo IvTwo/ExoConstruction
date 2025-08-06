@@ -29,9 +29,9 @@ public class InstructorAnim : MonoBehaviour
 
     void Start() {
         t = transform;
-        pathMover = GetComponent<PathMover>();
-        knotList = walkPath.Spline.Knots.ToList();
         SetLookTarget(player);
+
+        if (walkPath != null) { knotList = walkPath.Spline.Knots.ToList(); }
     }
 
     void Update() {
